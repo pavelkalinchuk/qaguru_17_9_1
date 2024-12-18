@@ -20,15 +20,17 @@ def test_practice_form():
     registration_page.fill_city()
     registration_page.scroll()
     registration_page.submit()
-    registration_page.should_have_registered('Pavel Kalinchuk',
-                                             'pavelkalinchuk@mail.tst',
-                                             'Male',
-                                             '8992367011',
-                                             '01 January,2000',
-                                             'Computer Science',
-                                             'Sports, Music',
-                                             'test_file.png',
-                                             'г. Москва, ул. 1-я Строителей, д.1, кв.1',
-                                             'Rajasthan Jaiselmer'
-                                             )
+    registration_page.should_have_registered(
+        'Pavel Kalinchuk',
+        'pavelkalinchuk@mail.tst',
+        'Male',
+        '8992367011',
+        '01 January,2000',
+        'Computer Science',
+        'Sports, Music',
+        'test_file.png',
+        'г. Москва, ул. 1-я Строителей, д.1, кв.1',
+        'Rajasthan Jaiselmer'
+    )
+
 
