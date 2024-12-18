@@ -1,4 +1,4 @@
-from pages.registration_page import RegistrationPage
+from demoqa_tests.registration_page import RegistrationPage
 
 
 def test_practice_form():
