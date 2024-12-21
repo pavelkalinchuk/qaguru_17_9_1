@@ -13,15 +13,11 @@ class RegistrationPage:
         browser.element(by.text(user.gender.value)).click()
         browser.element('#userNumber').click().type(user.mobile)
         browser.element('#dateOfBirthInput').click()
-        year = user.date_of_birth.get('years')
-        if year:
-            browser.element('.react-datepicker__year-select').click()
-            browser.element(by.text(year)).click()
-        month = user.date_of_birth.get('month')
-        if month:
-            browser.element('.react-datepicker__month-select').click()
-            browser.element(by.text(month)).click()
-        browser.element(by.text(user.date_of_birth.get('day'))).click()
+        browser.element('.react-datepicker__year-select').click()
+        browser.element(by.text(str(user.date_of_birth.year))).click()
+        browser.element('.react-datepicker__month-select').click()
+        browser.element(by.text(user.date_of_birth.strftime('%B'))).click()
+        browser.element(by.text(str(user.date_of_birth.day))).click()
         browser.element('#subjectsInput').click().type(user.subjects.value)
         browser.element('#react-select-2-option-0').click()
         browser.driver.execute_script("window.scrollBy(0,400)", "")
@@ -40,7 +36,7 @@ class RegistrationPage:
         email = user.email
         gender = user.gender.value
         mobile = user.mobile
-        date_of_birth = user.date_of_birth
+        date_of_birth = f'{user.date_of_birth.day} {user.date_of_birth.strftime("%B")},{user.date_of_birth.year}'
         subjects = user.subjects.value
         hobbies = user.hobbies.value
         picture = user.picture

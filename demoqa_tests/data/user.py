@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict
 from enum import Enum
+from datetime import date
 
 
 class Gender(Enum):
@@ -28,7 +29,8 @@ class User:
     email: str
     gender: Gender
     mobile: str
-    date_of_birth: Dict[str, str]
+    # date_of_birth: Dict[str, str]
+    date_of_birth: date
     subjects: Subjects
     hobbies: Hobbies
     picture: str
@@ -43,7 +45,8 @@ student = User(
     email='pavel@kalinchuk.pk',
     gender=Gender.MALE,
     mobile='8992367011',
-    date_of_birth={'day': '11', 'month': 'January', 'years': '2000'},
+    date_of_birth=date(2000, 1, 11),
+    # date_of_birth={'day': '11', 'month': 'January', 'years': '2000'},
     subjects=Subjects.COMPUTER_SCIENCE,
     hobbies=Hobbies.SPORT,
     picture='test_file.png',
