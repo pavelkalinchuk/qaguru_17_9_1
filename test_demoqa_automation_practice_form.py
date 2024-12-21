@@ -6,4 +6,4 @@ def test_practice_form():
     registration_form = RegistrationPage()
 
     registration_form.filling_registration_form(student)
-    registration_form.should_registration_form()
+    registration_form.should_registration_form(student)
