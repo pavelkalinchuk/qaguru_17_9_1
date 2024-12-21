@@ -1,5 +1,5 @@
 import os
-from selene import browser, be, have
+from selene import browser, be, have, by
 
 
 class RegistrationPage:
@@ -17,21 +17,21 @@ class RegistrationPage:
         browser.element('[id="userEmail"]').click().type(param)
 
     @staticmethod
-    def fill_gender():
-        browser.element('label[for="gender-radio-1"]').click()
+    def fill_gender(param):
+        browser.element(by.text(param)).click()
 
     @staticmethod
     def fill_phone(param):
         browser.element('#userNumber').click().type(param)
 
     @staticmethod
-    def fill_birthday():
+    def fill_birthday(year, mount, day):
         browser.element('#dateOfBirthInput').click()
-        browser.element('.react-datepicker-popper').should(be.visible)
-        browser.element('.react-datepicker__month-select').should(be.visible).element('[value="0"]').click()
-        browser.element('.react-datepicker__year-select').should(be.visible).element('[value="2000"]').click()
-        browser.element('.react-datepicker__week').should(be.visible).element('.react-datepicker__day.react'
-                                                                              '-datepicker__day--001').click()
+        browser.element('.react-datepicker__year-select').click()
+        browser.element(by.text(year)).click()
+        browser.element('.react-datepicker__month-select').click()
+        browser.element(by.text(mount)).click()
+        browser.element(by.text(day)).click()
 
     @staticmethod
     def fill_subjects(param):
@@ -43,9 +43,8 @@ class RegistrationPage:
         browser.driver.execute_script("window.scrollBy(0,400)", "")
 
     @staticmethod
-    def fill_hobbies():
-        browser.element('label[for="hobbies-checkbox-1"]').click()
-        browser.element('label[for="hobbies-checkbox-3"]').click()
+    def fill_hobbies(param):
+        browser.element(by.xpath(f"//label[contains(text(), '{param}')]")).click()
 
     @staticmethod
     def attach_file(param):
@@ -56,12 +55,12 @@ class RegistrationPage:
         browser.element('#currentAddress').should(be.visible).click().send_keys(param)
 
     @staticmethod
-    def fill_state():
-        browser.element('#state').should(be.visible).click().element('#react-select-3-option-3').click()
+    def fill_state(param):
+        browser.element('#state').click().element(by.text(param)).click()
 
     @staticmethod
-    def fill_city():
-        browser.element('#city').should(be.visible).click().element('#react-select-4-option-1').click()
+    def fill_city(param):
+        browser.element('#city').click().element(by.text(param)).click()
 
     @staticmethod
     def submit():
