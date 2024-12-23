@@ -5,4 +5,4 @@ demoqa_tests/__pycache__/
 .DS_Store
 demoqa_tests/data/__pycache__/
 demoqa_tests/pages/__pycache__/
-demoqa_tests/data/__pycache__/
+demoqa_tests/data/__pycache__/user.cpython-312.pyc
