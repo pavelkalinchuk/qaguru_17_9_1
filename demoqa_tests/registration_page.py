@@ -25,12 +25,12 @@ class RegistrationPage:
         browser.element('#userNumber').click().type(param)
 
     @staticmethod
-    def fill_birthday(year, mount, day):
+    def fill_birthday(year, month, day):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__year-select').click()
         browser.element(by.text(year)).click()
         browser.element('.react-datepicker__month-select').click()
-        browser.element(by.text(mount)).click()
+        browser.element(by.text(month)).click()
         browser.element(by.text(day)).click()
 
     @staticmethod
@@ -39,8 +39,8 @@ class RegistrationPage:
         browser.element('#react-select-2-option-0').click()
 
     @staticmethod
-    def scroll():
-        browser.driver.execute_script("window.scrollBy(0,400)", "")
+    def scroll(param):
+        browser.driver.execute_script(f"window.scrollBy(0,{param});")
 
     @staticmethod
     def fill_hobbies(param):
